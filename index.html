@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de chamado</title>
+    <style>
+        body{
+            background-color: rgb(100, 100, 226);
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        main{
+            display: flex;
+            flex-direction: column;
+        }
+
+        input{
+            padding: 5px 10px;
+            width: 30%;
+            margin: 10px;
+            border-radius: 5px 20px 20px 5px;
+            box-shadow: 2px 4px 6px 1px
+        }
+
+        button{
+            width: 50%;
+            height: 40px;
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px ;
+        }
+
+        main {
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <header> 
+        <h1>Calculadora de Chamados</h1>
+    </header>
+
+    <main>
+        <input id="chamado" type="number" placeholder="Digite o valor do chamado">
+        <input id="distancia" type="number" placeholder="Digite o valor da distância">
+        <input id="valorpkm" type="number" placeholder="Digite o valor por km rodado">
+        <button onclick="clicar()" >Obter resultado</button>
+        
+        <div> O valor total do atendimento será de: R$<span id="total"></span></div>
+        
+    </main>
+
+    <script>
+        var call = document.getElementById('chamado')
+        var distance = document.getElementById('distancia')
+        var valuepkm = document.getElementById('valorpkm')
+        var resultado = document.getElementById('total')
+        resultado.toLocaleString('pt-BR', {style: 'currency', curre:'BRL'})
+
+        function clicar() {
+            resultado.innerHTML = parseInt(call.value) + parseFloat(distance.value) * parseFloat(valuepkm.value)
+
+        }
+
+    </script>
+</body>
+</html>
